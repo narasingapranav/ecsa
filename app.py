@@ -43,6 +43,7 @@ if uploaded_file:
     # Preprocessing
     # --------------------------
     df["cleaned"] = df["comment_text"].apply(clean_text)
+    df.set_index('comment_id', inplace=True)
 
     # --------------------------
     # Sentiment Analysis
