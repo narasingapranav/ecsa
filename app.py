@@ -38,12 +38,12 @@ if uploaded_file:
     df = pd.read_csv(uploaded_file)
     st.subheader("Dataset Preview")
     st.dataframe(df)
+    df = df.set_index('comment_id')
 
     # --------------------------
     # Preprocessing
     # --------------------------
     df["cleaned"] = df["comment_text"].apply(clean_text)
-    df = df.set_index('comment_id')
 
     # --------------------------
     # Sentiment Analysis
