@@ -45,6 +45,8 @@ comment_id,stakeholder,provision_reference,date,comment_text
 2,Individual,Rule 7,2025-09-19,"This rule may create additional compliance burden."
 3,NGO,Rule 9,2025-09-20,"The new changes will benefit the environment greatly."
 
+```
+
 ## **Installation**
 
 Follow these steps to set up and run the project locally.
