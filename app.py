@@ -91,33 +91,6 @@ if uploaded_file:
     st.bar_chart(df["predicted_sentiment"].value_counts())
 
     # --------------------------
-    # Summarization
-    # --------------------------
-    st.subheader("Summary of All Comments")
-
-    if len(all_text.split()) > 0:
-        # Split into chunks if too large
-        text_chunks = chunk_text(all_text)
-        summaries = []
-
-        for i, chunk in enumerate(text_chunks):
-            st.write(f"Processing chunk {i + 1} of {len(text_chunks)}...")
-            result = summarizer(chunk, max_length=100, min_length=30, do_sample=False)
-            summaries.append(result[0]['summary_text'])
-
-        # Combine summaries into one final summary
-        final_summary_text = " ".join(summaries)
-
-        # Summarize the combined summary for a concise output
-        final_output = summarizer(final_summary_text, max_length=120, min_length=50, do_sample=False)
-        summary_text = final_output[0]['summary_text']
-
-        st.write("### Final Summary")
-        st.success(summary_text)
-    else:
-        st.warning("No comments found to summarize.")
-
-    # --------------------------
     # Download Results
     # --------------------------
     df.to_csv("results_with_sentiment.csv", index=False)
